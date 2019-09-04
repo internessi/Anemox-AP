@@ -6,6 +6,8 @@
 #include <SPIFFS.h>
 #include <Wire.h> 
 #include <RtcDS1307.h>
+#include <subs.h>
+
 
 
 #define dataPin  27
@@ -157,20 +159,4 @@ void loop() {
 
     delay(15000);
     
-}
-
-void printDateTime(const RtcDateTime& dt)
-{
-    char datestring[20];
-
-    snprintf_P(datestring, 
-            countof(datestring),
-            PSTR("%02u/%02u/%04u %02u:%02u:%02u"),
-            dt.Month(),
-            dt.Day(),
-            dt.Year(),
-            dt.Hour(),
-            dt.Minute(),
-            dt.Second() );
-    Serial.print(datestring);
 }
